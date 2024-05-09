@@ -34,11 +34,12 @@ print(U)
 
 # To print X matrix (solution to the equations)
 import numpy as np
-from scipy.linalg import lu
-A=np.array(eval(input()))
-B=np.array(eval(input()))
-C=np.linalg.solve(A,B)
-print(C)
+from scipy.linalg import lu_factor, lu_solve
+A = np.array(eval(input()))
+b = np.array(eval(input()))
+lu, piv = lu_factor(A)
+X = lu_solve((lu , piv),b)
+print(X)
 
 ```
 
